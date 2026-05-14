@@ -3,24 +3,60 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --ocean-deep: #003366;
+  --ocean-shallow: #0077B6;
+  --neutral-grey: #F5F5F5;
+  --line-color: #E5E7EB;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ocean-deep: var(--ocean-deep);
+  --color-ocean-shallow: var(--ocean-shallow);
+  --color-neutral-grey: var(--neutral-grey);
+  --color-line: var(--line-color);
+  
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-nanum-myeongjo), ui-serif, Georgia, serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --line-color: #262626;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), sans-serif;
+}
+
+.line-art-border {
+  border: 1px solid var(--line-color);
+}
+
+.line-art-x {
+  border-left: 1px solid var(--line-color);
+  border-right: 1px solid var(--line-color);
+}
+
+.line-art-y {
+  border-top: 1px solid var(--line-color);
+  border-bottom: 1px solid var(--line-color);
+}
+
+.magazine-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 0;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
 }
