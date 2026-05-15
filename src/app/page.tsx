@@ -11,8 +11,24 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        
+        {/* Decorative Line Motif */}
+        <div className="flex justify-center h-24">
+           <div className="w-px h-full bg-gradient-to-b from-transparent via-line to-line" />
+        </div>
+        
         <Archive />
+
+        <div className="flex justify-center h-24">
+           <div className="w-px h-full bg-line" />
+        </div>
+
         <MothersDiary />
+
+        <div className="flex justify-center h-24">
+           <div className="w-px h-full bg-line" />
+        </div>
+
         <TravelGuide />
       </main>
       <Footer />

@@ -9,76 +9,124 @@ export default function TravelGuide() {
     { from: "암태 남강선착장", to: "비금 가산항", time: "06:00 ~ 22:00", type: "차도선", duration: "약 40분", note: "매시 정각 부근 40분~1시간 간격 수시 운항" },
   ];
 
+  const themedRoutes = [
+    {
+      title: "엄마의 일기 코스",
+      description: "일기에 등장한 장소들을 따라 걷는 감성 산책로",
+      spots: ["도초항", "팽나무 10리길", "고란평야", "시목해변"],
+      color: "bg-ocean-deep"
+    },
+    {
+      title: "인생샷 포토 스팟",
+      description: "2030 여행자를 위한 도초도의 가장 아름다운 순간들",
+      spots: ["수국공원", "시목해변 데크길", "비금-도초 연도교"],
+      color: "bg-ocean-shallow"
+    }
+  ];
+
   return (
     <section id="travel" className="py-24 bg-white border-y border-line">
       <div className="max-w-4xl mx-auto px-6">
         <div className="flex items-center gap-4 mb-16">
-          <h2 className="text-3xl font-serif text-ocean-deep">섬으로 가는 길</h2>
+          <h2 className="text-3xl md:text-4xl font-serif text-ocean-deep">섬으로 가는 길</h2>
           <div className="flex-1 h-px bg-line" />
         </div>
 
-        {/* Option 1 */}
-        <div className="mb-20">
-          <h3 className="text-xl font-serif mb-6 text-zinc-900 flex items-center gap-3">
-            <span className="flex items-center justify-center w-8 h-8 rounded-full bg-ocean-deep text-white text-sm font-sans">1</span>
-            목포 연안여객선터미널 출발 (직행 노선)
-          </h3>
-          <p className="text-zinc-500 mb-8 ml-11 font-sans text-sm">목포항에서 도초항으로 바로 들어오는 가장 빠른 방법입니다.</p>
-          
-          <div className="bg-white line-art-border p-6 md:p-10 ml-0 md:ml-11">
-            <div className="overflow-x-auto">
-              <table className="w-full text-left">
-                <thead>
-                  <tr className="border-b border-line text-zinc-400 text-[10px] uppercase tracking-widest">
-                    <th className="pb-4 font-medium">From/To</th>
-                    <th className="pb-4 font-medium">Departure</th>
-                    <th className="pb-4 font-medium">Type</th>
-                    <th className="pb-4 font-medium text-right">Duration</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-line">
-                  {mokpoSchedule.map((item, index) => (
-                    <tr key={index} className="text-zinc-700 font-sans group hover:bg-neutral-grey transition-colors">
-                      <td className="py-5">
-                        <div className="text-sm font-medium">{item.from}</div>
-                        <div className="text-xs text-zinc-400">→ {item.to}</div>
-                      </td>
-                      <td className="py-5 font-bold text-ocean-deep">{item.time}</td>
-                      <td className="py-5 text-zinc-400 text-xs">{item.type}</td>
-                      <td className="py-5 text-right text-zinc-500 text-sm">{item.duration}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+        {/* Real-time Vibe Section */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+          <div className="bg-ocean-deep/5 p-8 rounded-2xl line-art-border flex items-center justify-between">
+            <div>
+               <span className="text-[10px] uppercase tracking-widest text-ocean-deep/60 block mb-2 font-bold">Current Tide</span>
+               <h4 className="text-xl font-serif text-ocean-deep">지금 도초도는 물이 들어오고 있어요.</h4>
+               <p className="text-sm text-zinc-500 mt-2 font-sans">만조의 바다를 보러 오기에 가장 좋은 시간입니다.</p>
+            </div>
+            <div className="hidden sm:block">
+               <svg className="w-12 h-12 text-ocean-deep/20" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71L12 2z" />
+               </svg>
+            </div>
+          </div>
+          <div className="bg-neutral-grey p-8 rounded-2xl line-art-border flex items-center justify-between">
+            <div>
+               <span className="text-[10px] uppercase tracking-widest text-zinc-400 block mb-2 font-bold">Weather</span>
+               <h4 className="text-xl font-serif text-zinc-800">맑음, 22°C</h4>
+               <p className="text-sm text-zinc-500 mt-2 font-sans">선선한 바닷바람이 불어 산책하기 좋습니다.</p>
+            </div>
+            <div className="hidden sm:block">
+               <svg className="w-12 h-12 text-yellow-500/20" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41zm-12.37 12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41z" />
+               </svg>
             </div>
           </div>
         </div>
 
-        {/* Option 2 */}
+        {/* Themed Routes */}
         <div className="mb-20">
-          <h3 className="text-xl font-serif mb-6 text-zinc-900 flex items-center gap-3">
-            <span className="flex items-center justify-center w-8 h-8 rounded-full bg-ocean-shallow text-white text-sm font-sans">2</span>
-            암태 남강선착장 출발 (천사대교 경유 노선)
-          </h3>
-          <p className="text-zinc-500 mb-8 ml-11 font-sans text-sm">천사대교를 건너는 즐거움이 있는 루트입니다. 자가용이나 버스를 이용해 남강항까지 이동 후 배를 탑승합니다.</p>
-          
-          <div className="ml-0 md:ml-11 space-y-8">
-            {/* Bus Info */}
-            <div className="p-6 bg-neutral-grey/30 border border-line rounded-lg">
-              <h4 className="text-sm font-bold text-zinc-700 mb-3 flex items-center gap-2">
-                <svg className="w-4 h-4 text-ocean-shallow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-                </svg>
-                버스 이동: 목포 → 남강선착장
-              </h4>
-              <ul className="text-sm text-zinc-600 space-y-2 font-sans">
-                <li><span className="text-zinc-400 mr-2">탑승처</span> 목포종합버스터미널 (1004번, 2004번 신안 공영버스)</li>
-                <li><span className="text-zinc-400 mr-2">소요시간</span> 약 1시간 10분 (천사대교 경유)</li>
-              </ul>
-            </div>
+          <h3 className="text-xl font-serif mb-8 text-zinc-900 border-l-4 border-ocean-shallow pl-4">추천 테마 루트</h3>
+          <div className="grid md:grid-cols-2 gap-8">
+            {themedRoutes.map((route, i) => (
+              <div key={i} className="line-art-border p-8 hover:shadow-lg transition-shadow bg-white">
+                <div className={`w-10 h-10 ${route.color} rounded-full mb-6 flex items-center justify-center text-white`}>
+                  {i === 0 ? "♥" : "📷"}
+                </div>
+                <h4 className="text-lg font-bold text-zinc-900 mb-2">{route.title}</h4>
+                <p className="text-sm text-zinc-500 mb-6 font-sans leading-relaxed">{route.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  {route.spots.map((spot, j) => (
+                    <span key={j} className="text-[11px] bg-neutral-grey px-2 py-1 rounded text-zinc-600 font-sans">
+                      {spot}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
 
-            {/* Ferry Info */}
-            <div className="bg-white line-art-border p-6 md:p-10">
+        {/* Transportation Options (Existing content but refined) */}
+        <div className="mb-20 space-y-16">
+          {/* Option 1 */}
+          <div>
+            <h3 className="text-xl font-serif mb-6 text-zinc-900 flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-ocean-deep text-white text-sm font-sans">1</span>
+              목포 연안여객선터미널 출발 (직행 노선)
+            </h3>
+            <div className="bg-white line-art-border p-6 md:p-10 ml-0 md:ml-11">
+              <div className="overflow-x-auto">
+                <table className="w-full text-left">
+                  <thead>
+                    <tr className="border-b border-line text-zinc-400 text-[10px] uppercase tracking-widest">
+                      <th className="pb-4 font-medium">From/To</th>
+                      <th className="pb-4 font-medium">Departure</th>
+                      <th className="pb-4 font-medium">Type</th>
+                      <th className="pb-4 font-medium text-right">Duration</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-line">
+                    {mokpoSchedule.map((item, index) => (
+                      <tr key={index} className="text-zinc-700 font-sans group hover:bg-neutral-grey transition-colors">
+                        <td className="py-5">
+                          <div className="text-sm font-medium">{item.from}</div>
+                          <div className="text-xs text-zinc-400">→ {item.to}</div>
+                        </td>
+                        <td className="py-5 font-bold text-ocean-deep">{item.time}</td>
+                        <td className="py-5 text-zinc-400 text-xs">{item.type}</td>
+                        <td className="py-5 text-right text-zinc-500 text-sm">{item.duration}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          {/* Option 2 */}
+          <div>
+            <h3 className="text-xl font-serif mb-6 text-zinc-900 flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-ocean-shallow text-white text-sm font-sans">2</span>
+              암태 남강선착장 출발 (천사대교 경유)
+            </h3>
+            <div className="ml-0 md:ml-11 bg-white line-art-border p-6 md:p-10">
               <div className="overflow-x-auto">
                 <table className="w-full text-left">
                   <thead>
@@ -104,37 +152,39 @@ export default function TravelGuide() {
                   </tbody>
                 </table>
               </div>
-              <p className="mt-4 text-[11px] text-zinc-400 font-sans italic">* {amtaeSchedule[0].note}</p>
             </div>
           </div>
         </div>
 
-        {/* Tips Box */}
-        <div className="bg-ocean-deep/5 border border-ocean-deep/10 p-8 md:p-10 rounded-2xl">
-          <h3 className="text-lg font-serif text-ocean-deep mb-6 flex items-center gap-2">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            여행자 확인 사항
-          </h3>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="space-y-2">
-              <h4 className="text-sm font-bold text-zinc-800">실시간 일정 확인</h4>
-              <p className="text-xs text-zinc-500 leading-relaxed font-sans">
-                여객선 시간은 계절 및 기상 상황에 따라 수시로 변동됩니다. 출발 전 반드시 '가보고 싶은 섬' 웹사이트나 해당 선사로 확인해 주세요.
-              </p>
-            </div>
-            <div className="space-y-2">
-              <h4 className="text-sm font-bold text-zinc-800">여객선 탑승 준비</h4>
-              <p className="text-xs text-zinc-500 leading-relaxed font-sans">
-                모든 승객은 신분증을 반드시 지참해야 하며, 출항 10~20분 전까지는 매표를 마치셔야 합니다.
-              </p>
-            </div>
-            <div className="space-y-2">
-              <h4 className="text-sm font-bold text-zinc-800">뚜벅이 팁</h4>
-              <p className="text-xs text-zinc-500 leading-relaxed font-sans">
-                목포에서 버스로 남강항에 오실 경우, 도로 상황을 고려하여 배 시간보다 30분 정도 여유 있게 도착하는 버스를 타시는 것이 안전합니다.
-              </p>
+        {/* Tips & Etiquette Section */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-20 pt-20 border-t border-line">
+          <div className="space-y-6">
+            <h3 className="text-lg font-serif text-ocean-deep flex items-center gap-2">
+               <span className="text-xl">🧳</span> 여행자 체크리스트
+            </h3>
+            <ul className="space-y-4 font-sans text-sm text-zinc-600">
+               <li className="flex items-start gap-3">
+                  <span className="text-ocean-shallow">✓</span>
+                  <div><strong>신분증 필히 지참</strong><p className="text-xs text-zinc-400">선박 탑승 시 모든 인원의 신분증이 필요합니다.</p></div>
+               </li>
+               <li className="flex items-start gap-3">
+                  <span className="text-ocean-shallow">✓</span>
+                  <div><strong>편한 신발</strong><p className="text-xs text-zinc-400">팽나무 길과 해변 산책을 위해 걷기 편한 신발을 권장합니다.</p></div>
+               </li>
+               <li className="flex items-start gap-3">
+                  <span className="text-ocean-shallow">✓</span>
+                  <div><strong>실시간 시간표 확인</strong><p className="text-xs text-zinc-400">기상 상황에 따라 선박 운항이 중단될 수 있습니다.</p></div>
+               </li>
+            </ul>
+          </div>
+          <div className="space-y-6">
+            <h3 className="text-lg font-serif text-ocean-deep flex items-center gap-2">
+               <span className="text-xl">🤫</span> 로컬 에티켓
+            </h3>
+            <div className="bg-neutral-grey/50 p-6 rounded-xl space-y-4 font-sans text-sm text-zinc-600 border border-line">
+               <p>"도초도는 조용한 섬입니다. 주민들의 평화로운 일상과 <strong>낮잠 시간</strong>을 지켜주세요."</p>
+               <p>"우리가 가져온 쓰레기는 다시 육지로 가져가는 <strong>머문 자리 흔적 없는 여행</strong>을 부탁드립니다."</p>
+               <p>"마을 어르신들을 만나면 따뜻한 <strong>목인사</strong>를 건네보세요. 더 풍성한 이야기가 돌아올지도 모릅니다."</p>
             </div>
           </div>
         </div>
@@ -142,4 +192,3 @@ export default function TravelGuide() {
     </section>
   );
 }
-
