@@ -4,7 +4,7 @@ const stories = [
   {
     title: "팽나무 10리길",
     description: "수령 100년의 팽나무들이 만든 터널 아래에서 바람을 만납니다.",
-    image: "/hero.png", // Reusing landscape for variety if needed, but I'll try to stick to theme
+    image: "/hero/IMG_2137.JPG", // Reusing landscape for variety if needed, but I'll try to stick to theme
     colSpan: "col-span-12 md:col-span-8",
   },
   {
@@ -16,13 +16,13 @@ const stories = [
   {
     title: "시목해수욕장",
     description: "비단결 같은 모래사장이 끝없이 펼쳐지는 곳.",
-    image: "/hero.png",
+    image: "/hero/IMG_2137.JPG",
     colSpan: "col-span-12 md:col-span-6",
   },
   {
     title: "자산어보의 흔적",
     description: "정약전 선생이 머물렀던 그 바다의 기록.",
-    image: "/hero.png",
+    image: "/hero/IMG_2137.JPG",
     colSpan: "col-span-12 md:col-span-6",
   },
 ];

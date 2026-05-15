@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import LogoComma from "./LogoComma";
 
 export default function Navbar() {
   return (
@@ -9,12 +10,15 @@ export default function Navbar() {
         <Link href="/" className="flex items-center gap-2 group">
           <div className="w-8 h-8 flex items-center justify-center">
             <svg viewBox="0 0 100 100" className="w-full h-full text-ocean-deep fill-current">
-              {/* Stylized hedgehog-like island shape */}
               <path d="M10,70 Q20,30 50,20 T90,70 L85,75 Q80,65 70,70 T50,75 T30,70 T15,75 Z" />
               <circle cx="35" cy="50" r="2" className="text-white fill-current" />
             </svg>
           </div>
-          <span className="text-xl font-sans font-bold tracking-tight text-ocean-deep">도초바다</span>
+          <div className="flex items-center">
+            <span className="text-xl font-logo text-ocean-deep">도초</span>
+            <LogoComma className="mt-1 text-ocean-deep" />
+            <span className="text-xl font-logo text-ocean-deep ml-1.5">바다</span>
+          </div>
         </Link>
         
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-600">

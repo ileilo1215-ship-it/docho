@@ -6,7 +6,7 @@ export default function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/hero.png"
+          src="/hero/IMG_2137.JPG"
           alt="Docho Island Landscape"
           fill
           className="object-cover brightness-90"
@@ -17,7 +17,7 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 text-center px-6">
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif text-white leading-tight mb-8 drop-shadow-lg">
+        <h1 className="text-xl md:text-3xl lg:text-4xl font-gowun text-white leading-tight mb-8 drop-shadow-lg">
           엄마의 일기가 안내하는 <br className="hidden md:block" /> 길을 따라 걷다
         </h1>
         <div className="flex flex-col items-center gap-4">

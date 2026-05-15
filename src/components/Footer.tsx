@@ -1,3 +1,5 @@
+import LogoComma from "./LogoComma";
+
 export default function Footer() {
   return (
     <footer className="bg-ocean-deep text-white py-24 px-6 overflow-hidden relative">
@@ -43,9 +45,11 @@ export default function Footer() {
           </div>
 
           <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-            <div className="flex items-center gap-2">
-              <span className="text-xl font-serif">도초바다</span>
-              <span className="text-white/30 text-xs font-sans tracking-widest">© 2026 SHINAN DOCHO</span>
+            <div className="flex items-center">
+              <span className="text-xl font-logo text-white">도초</span>
+              <LogoComma className="mt-1 text-white" />
+              <span className="text-xl font-logo text-white ml-1.5">바다</span>
+              <span className="text-white/30 text-xs font-sans tracking-widest ml-4">© 2026 SHINAN DOCHO</span>
             </div>
             <div className="flex gap-6 text-white/40 text-xs font-sans">
               <a href="#" className="hover:text-white transition-colors">Instagram</a>
