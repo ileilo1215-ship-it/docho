@@ -99,7 +99,34 @@ export default function BottleSea({ messages }: BottleSeaProps) {
       {/* Overlay for better depth */}
       <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-ocean-deep/40 to-transparent" />
 
+      {/* Mobile Messages Marquee (Mobile Only) */}
+      <div className="md:hidden absolute bottom-0 left-0 right-0 z-20 bg-black/20 backdrop-blur-sm py-3 border-t border-white/10">
+        <div className="overflow-hidden whitespace-nowrap">
+          <div className="inline-block animate-marquee-mobile">
+            {messages.map((msg) => (
+              <span key={`mobile-${msg.id}`} className="mx-8 text-white/90 text-[11px] font-sans italic">
+                <span className="font-bold text-ocean-shallow not-italic">{msg.author}</span> — "{msg.content}"
+              </span>
+            ))}
+            {/* Repeat for seamless animation */}
+            {messages.map((msg) => (
+              <span key={`mobile-dup-${msg.id}`} className="mx-8 text-white/90 text-[11px] font-sans italic">
+                <span className="font-bold text-ocean-shallow not-italic">{msg.author}</span> — "{msg.content}"
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
       <style jsx>{`
+        @keyframes marquee-mobile {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-marquee-mobile {
+          display: inline-block;
+          animation: marquee-mobile 30s linear infinite;
+        }
         @keyframes wave-slow {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }

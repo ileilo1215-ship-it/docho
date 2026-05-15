@@ -4,6 +4,7 @@ import Archive from "@/components/Archive";
 import MothersDiary from "@/components/MothersDiary";
 import TravelGuide from "@/components/TravelGuide";
 import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 
 export default function Home() {
   return (
@@ -18,20 +19,21 @@ export default function Home() {
         </div>
         
         <Archive />
-
+ 
         <div className="flex justify-center h-24">
            <div className="w-px h-full bg-line" />
         </div>
-
+ 
         <MothersDiary />
-
+ 
         <div className="flex justify-center h-24">
            <div className="w-px h-full bg-line" />
         </div>
-
+ 
         <TravelGuide />
       </main>
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }

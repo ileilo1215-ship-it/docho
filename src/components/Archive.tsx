@@ -76,7 +76,7 @@ export default function Archive() {
       <div className="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-line pb-8">
         <div>
           <h2 className="text-3xl md:text-4xl font-serif text-ocean-deep mb-4">도초의 조각</h2>
-          <p className="text-zinc-500 font-sans max-w-md">장소와 사람, 도초도의 모든 숨겨진 이야기들을 기록합니다.</p>
+          <p className="text-zinc-500 font-sans max-w-md">장소와 사람, 도초도의 숨겨진 이야기들을 기록합니다.</p>
         </div>
         
         {/* Filtering Tabs */}

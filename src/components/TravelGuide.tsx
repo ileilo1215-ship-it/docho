@@ -34,30 +34,42 @@ export default function TravelGuide() {
 
         {/* Real-time Vibe Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-          <div className="bg-ocean-deep/5 p-8 rounded-2xl line-art-border flex items-center justify-between">
+          <a 
+            href="https://www.badatime.com/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="bg-ocean-deep/5 p-8 rounded-2xl line-art-border flex items-center justify-between hover:bg-ocean-deep/10 transition-colors group"
+          >
             <div>
-               <span className="text-[10px] uppercase tracking-widest text-ocean-deep/60 block mb-2 font-bold">Current Tide</span>
+               <span className="text-[10px] uppercase tracking-widest text-ocean-deep/60 block mb-2 font-bold">현재 물때 (Current Tide)</span>
                <h4 className="text-xl font-serif text-ocean-deep">지금 도초도는 물이 들어오고 있어요.</h4>
                <p className="text-sm text-zinc-500 mt-2 font-sans">만조의 바다를 보러 오기에 가장 좋은 시간입니다.</p>
+               <span className="text-[10px] text-ocean-deep mt-4 inline-block border-b border-ocean-deep opacity-0 group-hover:opacity-100 transition-opacity">실시간 물때 확인하기 →</span>
             </div>
             <div className="hidden sm:block">
-               <svg className="w-12 h-12 text-ocean-deep/20" fill="currentColor" viewBox="0 0 24 24">
+               <svg className="w-12 h-12 text-ocean-deep/20 group-hover:text-ocean-deep/40 transition-colors" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71L12 2z" />
                </svg>
             </div>
-          </div>
-          <div className="bg-neutral-grey p-8 rounded-2xl line-art-border flex items-center justify-between">
+          </a>
+          <a 
+            href="https://search.naver.com/search.naver?query=도초면+날씨" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="bg-neutral-grey p-8 rounded-2xl line-art-border flex items-center justify-between hover:bg-zinc-100 transition-colors group"
+          >
             <div>
-               <span className="text-[10px] uppercase tracking-widest text-zinc-400 block mb-2 font-bold">Weather</span>
+               <span className="text-[10px] uppercase tracking-widest text-zinc-400 block mb-2 font-bold">오늘의 날씨 (Weather)</span>
                <h4 className="text-xl font-serif text-zinc-800">맑음, 22°C</h4>
                <p className="text-sm text-zinc-500 mt-2 font-sans">선선한 바닷바람이 불어 산책하기 좋습니다.</p>
+               <span className="text-[10px] text-zinc-400 mt-4 inline-block border-b border-zinc-400 opacity-0 group-hover:opacity-100 transition-opacity">기상 예보 확인하기 →</span>
             </div>
             <div className="hidden sm:block">
-               <svg className="w-12 h-12 text-yellow-500/20" fill="currentColor" viewBox="0 0 24 24">
+               <svg className="w-12 h-12 text-yellow-500/20 group-hover:text-yellow-500/40 transition-colors" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41zm-12.37 12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41z" />
                </svg>
             </div>
-          </div>
+          </a>
         </div>
 
         {/* Themed Routes */}
