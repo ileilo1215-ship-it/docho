@@ -30,14 +30,6 @@ export const metadata: Metadata = {
     description: "장소와 사람, 도초도의 모든 숨겨진 이야기들을 기록합니다.",
     url: "https://docho-kappa.vercel.app/",
     siteName: "도초, 바다",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "도초, 바다 로고",
-      },
-    ],
     locale: "ko_KR",
     type: "website",
   },
@@ -45,7 +37,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "도초, 바다 — 시간을 잇는 바다의 기록",
     description: "장소와 사람, 도초도의 모든 숨겨진 이야기들을 기록합니다.",
-    images: ["/og-image.png"],
   },
 };
 
