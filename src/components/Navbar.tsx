@@ -22,10 +22,10 @@ export default function Navbar() {
         </Link>
         
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-600">
-          <Link href="/" className="hover:text-ocean-deep transition-colors">Home</Link>
-          <Link href="#archive" className="hover:text-ocean-deep transition-colors">Archive</Link>
-          <Link href="#diary" className="hover:text-ocean-deep transition-colors">Mother's Diary</Link>
-          <Link href="#travel" className="hover:text-ocean-deep transition-colors">Travel</Link>
+          <Link href="/" className="hover:text-ocean-deep transition-colors">시작하기</Link>
+          <Link href="#archive" className="hover:text-ocean-deep transition-colors">도초의 조각</Link>
+          <Link href="#diary" className="hover:text-ocean-deep transition-colors">푸른 연서(戀書)</Link>
+          <Link href="#travel" className="hover:text-ocean-deep transition-colors">섬으로 가는 길</Link>
         </div>
         
         <button className="md:hidden p-2">

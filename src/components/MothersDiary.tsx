@@ -7,7 +7,7 @@ export default function MothersDiary() {
     <section id="diary" className="py-24 bg-neutral-grey">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif text-ocean-deep mb-6 italic">Mother's Diary</h2>
+          <h2 className="text-4xl md:text-5xl font-serif text-ocean-deep mb-6 italic">푸른 연서(戀書)</h2>
           <div className="w-24 h-px bg-ocean-shallow mx-auto" />
         </div>
 
@@ -17,7 +17,7 @@ export default function MothersDiary() {
             <div className="relative w-full h-full">
               <Image
                 src="/diary_mockup.png"
-                alt="Mother's Diary"
+                alt="푸른 연서(戀書)"
                 fill
                 className="object-contain"
               />

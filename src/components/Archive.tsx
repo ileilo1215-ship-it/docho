@@ -32,8 +32,8 @@ export default function Archive() {
     <section id="archive" className="py-24 bg-white px-6 max-w-7xl mx-auto">
       <div className="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-line pb-8">
         <div>
-          <h2 className="text-3xl md:text-4xl font-serif text-ocean-deep mb-4">The Archive</h2>
-          <p className="text-zinc-500 font-sans max-w-md">장소와 사람, 도초도의 모든 숨겨진 이야기들을 현대적인 시선으로 기록합니다.</p>
+          <h2 className="text-3xl md:text-4xl font-serif text-ocean-deep mb-4">도초의 조각</h2>
+          <p className="text-zinc-500 font-sans max-w-md">장소와 사람, 도초도의 모든 숨겨진 이야기들을 기록합니다.</p>
         </div>
         <span className="text-zinc-300 font-sans tracking-widest uppercase text-xs mt-4 md:mt-0">Vol. 01 — 2026</span>
       </div>
