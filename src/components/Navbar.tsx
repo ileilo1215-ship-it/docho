@@ -55,21 +55,29 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Backdrop */}
       <div 
-        className={`fixed inset-0 z-40 bg-white transition-all duration-500 ease-in-out md:hidden ${
-          isOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full pointer-events-none"
+        className={`fixed inset-0 z-40 bg-black/20 backdrop-blur-sm transition-opacity duration-500 md:hidden ${
+          isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={() => setIsOpen(false)}
+      />
+
+      {/* Mobile Menu Drawer */}
+      <div 
+        className={`fixed top-0 right-0 bottom-0 z-50 w-[70%] bg-white shadow-2xl transition-transform duration-500 ease-in-out md:hidden ${
+          isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex flex-col items-center justify-center h-full gap-10 text-2xl font-serif text-ocean-deep">
+        <div className="flex flex-col p-10 pt-24 gap-8 text-xl font-serif text-ocean-deep">
           {menuItems.map((item, index) => (
             <Link 
               key={item.name} 
               href={item.href} 
               onClick={() => setIsOpen(false)}
               className={`transform transition-all duration-500 delay-${index * 100} ${
-                isOpen ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-              } hover:scale-110`}
+                isOpen ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"
+              } hover:text-ocean-shallow`}
             >
               {item.name}
             </Link>

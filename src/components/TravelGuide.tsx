@@ -41,7 +41,7 @@ export default function TravelGuide() {
             className="bg-ocean-deep/5 p-8 rounded-2xl line-art-border flex items-center justify-between hover:bg-ocean-deep/10 transition-colors group"
           >
             <div>
-               <span className="text-[10px] uppercase tracking-widest text-ocean-deep/60 block mb-2 font-bold">현재 물때 (Current Tide)</span>
+               <span className="text-[10px] uppercase tracking-widest text-ocean-deep/60 block mb-2 font-bold">현재 물때</span>
                <h4 className="text-xl font-serif text-ocean-deep">지금 도초도는 물이 들어오고 있어요.</h4>
                <p className="text-sm text-zinc-500 mt-2 font-sans">만조의 바다를 보러 오기에 가장 좋은 시간입니다.</p>
                <span className="text-[10px] text-ocean-deep mt-4 inline-block border-b border-ocean-deep opacity-0 group-hover:opacity-100 transition-opacity">실시간 물때 확인하기 →</span>
@@ -59,7 +59,7 @@ export default function TravelGuide() {
             className="bg-neutral-grey p-8 rounded-2xl line-art-border flex items-center justify-between hover:bg-zinc-100 transition-colors group"
           >
             <div>
-               <span className="text-[10px] uppercase tracking-widest text-zinc-400 block mb-2 font-bold">오늘의 날씨 (Weather)</span>
+               <span className="text-[10px] uppercase tracking-widest text-zinc-400 block mb-2 font-bold">오늘의 날씨</span>
                <h4 className="text-xl font-serif text-zinc-800">맑음, 22°C</h4>
                <p className="text-sm text-zinc-500 mt-2 font-sans">선선한 바닷바람이 불어 산책하기 좋습니다.</p>
                <span className="text-[10px] text-zinc-400 mt-4 inline-block border-b border-zinc-400 opacity-0 group-hover:opacity-100 transition-opacity">기상 예보 확인하기 →</span>
