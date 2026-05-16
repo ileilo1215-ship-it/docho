@@ -35,16 +35,36 @@ export default function PostcardModal({ isOpen, onClose }: PostcardModalProps) {
     }
   }, [isOpen, isSubmitted]);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    // We'll let the form submit naturally to the iframe
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
     if (!sender || !content || !agreed) {
-      e.preventDefault();
       alert("모든 필수 항목을 입력하고 동의해 주세요.");
       return;
     }
     
-    // The success state will be shown immediately upon submission
-    setIsSubmitted(true);
+    const formData = new FormData(e.currentTarget);
+    
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/ileilo1215@gmail.com", {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        const errorData = await response.json();
+        console.error("FormSubmit Error:", errorData);
+        alert(`전송 실패: ${errorData.message || "알 수 없는 오류"}\n(메일함에서 인증 메일을 먼저 확인해 주세요!)`);
+      }
+    } catch (error) {
+      console.error("Submission Error:", error);
+      alert("연결 오류가 발생했습니다. 네트워크 상태를 확인하거나 잠시 후 다시 시도해 주세요.");
+    }
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -63,9 +83,6 @@ export default function PostcardModal({ isOpen, onClose }: PostcardModalProps) {
         onClick={onClose}
       />
       
-      {/* Hidden Iframe for submission */}
-      <iframe name="hidden_iframe" id="hidden_iframe" className="hidden" />
-
       {/* Modal Container */}
       <div className={`relative w-full max-w-[420px] bg-[#FCFBF8] shadow-2xl transition-all duration-500 ease-out transform ${isOpen ? 'scale-100 opacity-100' : 'scale-95 opacity-0'}`}>
         {/* Postcard Border Decorative */}
@@ -115,9 +132,6 @@ export default function PostcardModal({ isOpen, onClose }: PostcardModalProps) {
 
               {/* Form */}
               <form 
-                action="https://formsubmit.co/ileilo1215@gmail.com" 
-                method="POST" 
-                target="hidden_iframe"
                 onSubmit={handleSubmit} 
                 className="space-y-5"
               >
@@ -175,7 +189,7 @@ export default function PostcardModal({ isOpen, onClose }: PostcardModalProps) {
                   />
                 </div>
 
-                {/* File Upload (Note: File upload via FormSubmit might require special handling, but we'll include it) */}
+                {/* File Upload */}
                 <div className="space-y-1.5">
                   <label className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">사진 조각 더하기</label>
                   <div className="flex items-center gap-3">
