@@ -32,23 +32,8 @@ export default function PostcardModal({ isOpen, onClose }: PostcardModalProps) {
     }
   }, [isOpen, isSubmitted]);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!sender || !content || !agreed) {
-      alert("모든 필수 항목을 입력하고 동의해 주세요.");
-      return;
-    }
-
-    // Construct mailto link as a reliable fallback
-    const subject = encodeURIComponent(`[도초바다] 새로운 편지가 도착했습니다 - ${sender}`);
-    const body = encodeURIComponent(`보낸 사람: ${sender}\n\n내용:\n${content}\n\n(참고: 첨부하신 사진은 메일 앱에서 별도로 첨부해 주세요.)`);
-    const mailtoLink = `mailto:ileilo1215@gmail.com?subject=${subject}&body=${body}`;
-    
-    // Open mail client
-    window.location.href = mailtoLink;
-    
-    // Show success state
+  const handleSubmit = () => {
+    // We let the form submit naturally to the hidden iframe
     setIsSubmitted(true);
   };
 
@@ -68,11 +53,14 @@ export default function PostcardModal({ isOpen, onClose }: PostcardModalProps) {
         onClick={onClose}
       />
       
+      {/* Hidden Iframe to handle submission without page reload or mail client */}
+      <iframe name="hidden_iframe" id="hidden_iframe" className="hidden" />
+
       {/* Modal Container */}
-      <div className={`relative w-full max-w-[400px] bg-[#FCFBF8] shadow-2xl transition-all duration-500 ease-out transform ${isOpen ? 'scale-100 opacity-100' : 'scale-95 opacity-0'}`}>
+      <div className={`relative w-full max-w-[380px] bg-[#FCFBF8] shadow-2xl transition-all duration-500 ease-out transform ${isOpen ? 'scale-100 opacity-100' : 'scale-95 opacity-0'}`}>
         {/* Postcard Border Decorative */}
-        <div className="absolute inset-0 border-[10px] border-white/50 pointer-events-none" />
-        <div className="absolute inset-2.5 border border-zinc-200 pointer-events-none" />
+        <div className="absolute inset-0 border-[8px] border-white/50 pointer-events-none" />
+        <div className="absolute inset-2 border border-zinc-200 pointer-events-none" />
 
         <div className="relative p-6 md:p-8">
           {/* Close Button */}
@@ -89,7 +77,7 @@ export default function PostcardModal({ isOpen, onClose }: PostcardModalProps) {
           {!isSubmitted ? (
             <div className="space-y-5">
               {/* Header */}
-              <div className="text-center space-y-2.5">
+              <div className="text-center space-y-2">
                 <div className="flex justify-center">
                   <svg 
                     viewBox="0 0 24 24" 
@@ -98,7 +86,7 @@ export default function PostcardModal({ isOpen, onClose }: PostcardModalProps) {
                     strokeWidth="1" 
                     strokeLinecap="round" 
                     strokeLinejoin="round" 
-                    className="w-9 h-9 text-ocean-deep opacity-40"
+                    className="w-8 h-8 text-ocean-deep opacity-40"
                   >
                     <circle cx="12" cy="5" r="3" />
                     <line x1="12" y1="22" x2="12" y2="8" />
@@ -107,9 +95,9 @@ export default function PostcardModal({ isOpen, onClose }: PostcardModalProps) {
                 </div>
                 <div className="space-y-1">
                   <h2 className="text-lg font-serif text-ocean-deep tracking-tight">섬으로 보내는 편지</h2>
-                  <div className="h-px w-5 bg-ocean-shallow/30 mx-auto" />
+                  <div className="h-px w-4 bg-ocean-shallow/30 mx-auto" />
                 </div>
-                <p className="text-zinc-500 text-[11px] font-sans leading-relaxed px-2">
+                <p className="text-zinc-500 text-[11px] font-sans leading-relaxed">
                   당신의 기억 한 조각을 나누어 주세요. <br />
                   소중한 기록은 '도초의 조각들' 메뉴에 기록됩니다.
                 </p>
@@ -117,9 +105,17 @@ export default function PostcardModal({ isOpen, onClose }: PostcardModalProps) {
 
               {/* Form */}
               <form 
-                onSubmit={handleSubmit} 
+                action="https://formsubmit.co/ileilo1215@gmail.com" 
+                method="POST" 
+                target="hidden_iframe"
+                onSubmit={handleSubmit}
                 className="space-y-4"
               >
+                {/* FormSubmit Config */}
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="_subject" value={`[도초바다] 새로운 편지가 도착했습니다 - ${sender}`} />
+
                 {/* Sender Input */}
                 <div className="space-y-1">
                   <label className="text-[9px] font-bold text-zinc-400 uppercase tracking-widest">보내는 사람</label>
@@ -191,16 +187,16 @@ export default function PostcardModal({ isOpen, onClose }: PostcardModalProps) {
                 {/* Submit Button */}
                 <button 
                   type="submit"
-                  className="w-full py-3 bg-ocean-deep text-white font-sans font-bold text-[10px] tracking-widest uppercase hover:bg-ocean-shallow transition-all duration-300 shadow-lg shadow-ocean-deep/10"
+                  className="w-full py-2.5 bg-ocean-deep text-white font-sans font-bold text-[10px] tracking-widest uppercase hover:bg-ocean-shallow transition-all duration-300 shadow-lg shadow-ocean-deep/10"
                 >
                   편지 보내기
                 </button>
               </form>
             </div>
           ) : (
-            <div className="py-10 text-center space-y-4 flex flex-col items-center animate-in fade-in zoom-in duration-500">
-              <div className="w-14 h-14 bg-ocean-shallow/10 rounded-full flex items-center justify-center mb-1">
-                <span className="text-2xl">🌊</span>
+            <div className="py-8 text-center space-y-4 flex flex-col items-center animate-in fade-in zoom-in duration-500">
+              <div className="w-12 h-12 bg-ocean-shallow/10 rounded-full flex items-center justify-center mb-1">
+                <span className="text-xl">🌊</span>
               </div>
               <h3 className="text-base font-serif text-ocean-deep leading-relaxed">
                 당신의 편지가 도초도 바다에 <br />
@@ -212,7 +208,7 @@ export default function PostcardModal({ isOpen, onClose }: PostcardModalProps) {
               <button 
                 type="button"
                 onClick={onClose}
-                className="mt-3 px-5 py-2 border border-zinc-200 text-zinc-500 hover:text-ocean-deep hover:border-ocean-deep transition-all text-[9px] font-bold tracking-widest uppercase"
+                className="mt-2 px-5 py-2 border border-zinc-200 text-zinc-500 hover:text-ocean-deep hover:border-ocean-deep transition-all text-[9px] font-bold tracking-widest uppercase"
               >
                 닫기
               </button>
