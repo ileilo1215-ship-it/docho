@@ -111,18 +111,20 @@ export default function PostcardModal({ isOpen, onClose }: PostcardModalProps) {
                 onSubmit={handleSubmit}
                 className="space-y-4"
               >
-                {/* FormSubmit Config */}
+                {/* FormSubmit Config: Optimized for Gmail delivery */}
                 <input type="hidden" name="_captcha" value="false" />
                 <input type="hidden" name="_template" value="table" />
-                <input type="hidden" name="_subject" value={`[도초바다] 새로운 편지가 도착했습니다 - ${sender}`} />
-                <input type="hidden" name="email" value="ileilo1215@gmail.com" />
+                <input type="hidden" name="_subject" value={`[DOCHO-SEA] A new postcard from ${sender || "Visitor"}`} />
+                <input type="hidden" name="_replyto" value="ileilo1215@gmail.com" />
+                {/* We use a different name for the email field to avoid self-spoofing flags */}
+                <input type="hidden" name="contact_email" value="ileilo1215@gmail.com" />
 
                 {/* Sender Input */}
                 <div className="space-y-1">
                   <label className="text-[9px] font-bold text-zinc-400 uppercase tracking-widest">보내는 사람</label>
                   <input 
                     type="text"
-                    name="보낸사람"
+                    name="sender_name"
                     value={sender}
                     onChange={(e) => setSender(e.target.value)}
                     placeholder="이름 또는 닉네임"
@@ -136,7 +138,7 @@ export default function PostcardModal({ isOpen, onClose }: PostcardModalProps) {
                   <label className="text-[9px] font-bold text-zinc-400 uppercase tracking-widest">편지 내용</label>
                   <textarea 
                     rows={4}
-                    name="내용"
+                    name="message_content"
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
                     placeholder="그곳에서의 기억이나 전하고 싶은 말을 적어주세요."
