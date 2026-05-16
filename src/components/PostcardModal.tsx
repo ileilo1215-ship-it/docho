@@ -115,6 +115,7 @@ export default function PostcardModal({ isOpen, onClose }: PostcardModalProps) {
                 <input type="hidden" name="_captcha" value="false" />
                 <input type="hidden" name="_template" value="table" />
                 <input type="hidden" name="_subject" value={`[도초바다] 새로운 편지가 도착했습니다 - ${sender}`} />
+                <input type="hidden" name="email" value="ileilo1215@gmail.com" />
 
                 {/* Sender Input */}
                 <div className="space-y-1">
