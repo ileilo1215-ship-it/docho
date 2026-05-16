@@ -34,17 +34,15 @@ export default function ScrollToTop() {
       aria-label="Scroll to top"
     >
       <svg
-        className="w-6 h-6 text-white transition-transform group-hover:-translate-y-1"
+        className="w-6 h-6 text-white transition-transform group-hover:rotate-12"
+        viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
-        viewBox="0 0 24 24"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M5 10l7-7m0 0l7 7m-7-7v18"
-        />
+        <path d="M12 5V22M5 12H2a10 10 0 0 0 20 0h-3M12 5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
       </svg>
       {/* Tooltip */}
       <span className="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-ocean-deep text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">

@@ -22,7 +22,7 @@ export default function Hero() {
         </h1>
         <div className="flex flex-col items-center gap-4">
           <div className="w-px h-16 bg-white/60 animate-pulse" />
-          <p className="text-white/80 font-sans tracking-[0.2em] text-sm uppercase">Scroll to explore</p>
+          <p className="text-white/80 font-sans tracking-[0.2em] text-sm uppercase">스크롤하여 둘러보기</p>
         </div>
       </div>
 

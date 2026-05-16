@@ -114,7 +114,7 @@ export default function Archive() {
               />
               {/* Type Badge */}
               <div className="absolute top-4 left-4 bg-white/90 px-3 py-1 text-[10px] uppercase tracking-widest font-bold text-ocean-deep line-art-border">
-                {story.type === "place" ? "Place" : "Person"}
+                {story.type === "place" ? "장소" : "사람"}
               </div>
             </div>
             <div className="flex justify-between items-start mb-2">
@@ -137,7 +137,7 @@ export default function Archive() {
             onClick={() => setDisplayCount((prev) => prev + 4)}
             className="group relative px-8 py-3 font-sans text-sm text-ocean-deep overflow-hidden"
           >
-            <span className="relative z-10">더 보기 (Load More)</span>
+            <span className="relative z-10">더 보기</span>
             <div className="absolute bottom-0 left-0 w-full h-[1px] bg-ocean-deep/20 group-hover:h-full group-hover:bg-ocean-deep/5 transition-all duration-300" />
             <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-ocean-deep group-hover:w-full transition-all duration-500" />
           </button>

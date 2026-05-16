@@ -3,6 +3,7 @@
 import { useState } from "react";
 import LogoComma from "./LogoComma";
 import BottleSea, { Message } from "./BottleSea";
+import PostcardModal from "./PostcardModal";
 
 const INITIAL_MESSAGES: Message[] = [
   { id: 1, author: "서울에서 온 안부", content: "도초도의 파란 지붕이 그립네요.", x: 15, y: 40, delay: 0, size: 4 },
@@ -21,6 +22,7 @@ export default function Footer() {
   const [messages, setMessages] = useState<Message[]>(INITIAL_MESSAGES);
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
+  const [isPostcardOpen, setIsPostcardOpen] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -46,7 +48,7 @@ export default function Footer() {
       {/* Digital Message in a Bottle: Sea Area */}
       <div className="relative">
         <div className="absolute top-8 left-1/2 -translate-x-1/2 z-20 text-center pointer-events-none">
-          <h2 className="text-sm font-serif tracking-[0.2em] text-white/40 uppercase">Digital Message in a Bottle</h2>
+          <h2 className="text-sm font-serif tracking-[0.2em] text-white/40 uppercase">바다 위의 편지</h2>
           <div className="h-px w-12 bg-white/20 mx-auto mt-2" />
         </div>
         <BottleSea messages={messages} />
@@ -98,29 +100,74 @@ export default function Footer() {
                 가장 먼저 전달해 드립니다.
               </p>
               <button className="inline-flex items-center gap-4 text-white font-serif text-2xl group">
-                Issue Digital ID
+                디지털 주민증 발급
                 <svg className="w-8 h-8 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </button>
             </div>
 
-            <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+            <div className="pt-12 border-t border-white/10 space-y-8">
+              {/* Logo & Copyright */}
               <div className="flex items-center">
                 <span className="text-xl font-logo text-white">도초</span>
                 <LogoComma className="mt-1 text-white" />
                 <span className="text-xl font-logo text-white ml-1.5">바다</span>
                 <span className="text-white/30 text-xs font-sans tracking-widest ml-4">© 2026 SHINAN DOCHO</span>
               </div>
-              <div className="flex gap-6 text-white/40 text-xs font-sans">
-                <a href="#" className="hover:text-white transition-colors">Instagram</a>
-                <a href="#" className="hover:text-white transition-colors">YouTube</a>
-                <a href="#" className="hover:text-white transition-colors">Contact</a>
+
+              {/* Info & Links */}
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                <div className="text-white/60 text-xs font-sans flex items-center gap-2">
+                  <span className="opacity-40">오늘의 도초:</span>
+                  <span className="bg-white/5 px-2 py-1 rounded">☀️ 24°C</span>
+                  <span className="opacity-20">|</span>
+                  <span className="bg-white/5 px-2 py-1 rounded">🌊 만조 14:20</span>
+                </div>
+
+                <div className="flex gap-8 text-white/40 text-xs font-sans items-center">
+                  <div className="relative group">
+                    <a 
+                      href="https://www.ilovegohyang.go.kr/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="hover:text-white transition-colors border-b border-white/10 pb-0.5"
+                    >
+                      고향사랑기부
+                    </a>
+                    {/* Tooltip */}
+                    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 pointer-events-none whitespace-nowrap z-30">
+                      <div className="bg-white text-ocean-deep px-3 py-1.5 text-[10px] font-bold shadow-2xl relative">
+                        신안의 작은 섬들을 지키는 힘이 됩니다
+                        <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-white" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="relative group">
+                    <button 
+                      onClick={() => setIsPostcardOpen(true)}
+                      className="hover:text-white transition-colors border-b border-white/10 pb-0.5 cursor-pointer"
+                    >
+                      섬으로 보내는 편지
+                    </button>
+                    {/* Tooltip */}
+                    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 pointer-events-none whitespace-nowrap z-30">
+                      <div className="bg-white text-ocean-deep px-3 py-1.5 text-[10px] font-bold shadow-2xl relative">
+                        당신의 도초를 들려주세요
+                        <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-white" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <PostcardModal 
+        isOpen={isPostcardOpen} 
+        onClose={() => setIsPostcardOpen(false)} 
+      />
     </footer>
   );
 }

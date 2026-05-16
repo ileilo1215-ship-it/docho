@@ -46,7 +46,7 @@ export default function MothersDiary() {
                 disabled={currentIndex === 0}
                 className="group flex flex-col items-end disabled:opacity-20 transition-all cursor-pointer disabled:cursor-default"
              >
-                <span className="text-zinc-400 text-[10px] uppercase tracking-widest mb-1">Previous</span>
+                <span className="text-zinc-400 text-[10px] uppercase tracking-widest mb-1">이전</span>
                 <span className="text-zinc-900 group-hover:text-ocean-shallow transition-colors font-medium">
                    {entry.prevTitle || "시작"}
                 </span>
@@ -57,7 +57,7 @@ export default function MothersDiary() {
                 disabled={currentIndex === diaryEntries.length - 1}
                 className="group flex flex-col items-start disabled:opacity-20 transition-all cursor-pointer disabled:cursor-default"
              >
-                <span className="text-zinc-400 text-[10px] uppercase tracking-widest mb-1">Next</span>
+                <span className="text-zinc-400 text-[10px] uppercase tracking-widest mb-1">다음</span>
                 <span className="text-zinc-900 group-hover:text-ocean-shallow transition-colors font-medium">
                    {entry.nextTitle || "마지막"}
                 </span>

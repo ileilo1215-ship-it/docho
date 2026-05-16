@@ -108,10 +108,10 @@ export default function TravelGuide() {
                 <table className="w-full text-left">
                   <thead>
                     <tr className="border-b border-line text-zinc-400 text-[10px] uppercase tracking-widest">
-                      <th className="pb-4 font-medium">From/To</th>
-                      <th className="pb-4 font-medium">Departure</th>
-                      <th className="pb-4 font-medium">Type</th>
-                      <th className="pb-4 font-medium text-right">Duration</th>
+                      <th className="pb-4 font-medium">출발/도착</th>
+                      <th className="pb-4 font-medium">출발 시각</th>
+                      <th className="pb-4 font-medium">선박 종류</th>
+                      <th className="pb-4 font-medium text-right">소요 시간</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-line">
@@ -143,10 +143,10 @@ export default function TravelGuide() {
                 <table className="w-full text-left">
                   <thead>
                     <tr className="border-b border-line text-zinc-400 text-[10px] uppercase tracking-widest">
-                      <th className="pb-4 font-medium">From/To</th>
-                      <th className="pb-4 font-medium">Departure</th>
-                      <th className="pb-4 font-medium">Type</th>
-                      <th className="pb-4 font-medium text-right">Duration</th>
+                      <th className="pb-4 font-medium">출발/도착</th>
+                      <th className="pb-4 font-medium">출발 시각</th>
+                      <th className="pb-4 font-medium">선박 종류</th>
+                      <th className="pb-4 font-medium text-right">소요 시간</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-line">
